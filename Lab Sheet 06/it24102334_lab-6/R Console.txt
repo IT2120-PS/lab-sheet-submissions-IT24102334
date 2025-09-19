@@ -1,0 +1,46 @@
+
+R version 4.5.1 (2025-06-13) -- "Great Square Root"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.82 (8536) aarch64-apple-darwin20]
+
+[Workspace restored from /Users/pathumtehan/.RData]
+[History restored from /Users/pathumtehan/.Rapp.history]
+
+> setwd("`/Desktop/it24102334_lab-6")
+Error in setwd("`/Desktop/it24102334_lab-6") : 
+  cannot change working directory
+> setwd("~/Desktop/it24102334_lab-6")
+> getwd()
+[1] "/Users/pathumtehan/Desktop/it24102334_lab-6"
+> #Question 1
+> #Binomial Distribution
+> #Random Variable X has binomial distribution with n = 50 and p = 0.85
+> 1 - pbinom(46,50,0.85)
+[1] 0.04604658
+> #Question 2
+> #X: Number of customer calls received in an hour
+> #Poisson distribution
+> #Random Variable X has binomial distribution with lambda = 12
+> dpois(15 , 12)
+[1] 0.07239112
+> lambda<-12
+> prob_15<-dpois(15,lambda)
+> cat("P(X=15)=",prob_15,"\n")
+P(X=15)= 0.07239112 
+> 
