@@ -1,0 +1,99 @@
+
+R version 4.5.1 (2025-06-13) -- "Great Square Root"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.82 (8536) aarch64-apple-darwin20]
+
+[Workspace restored from /Users/pathumtehan/.RData]
+[History restored from /Users/pathumtehan/.Rapp.history]
+
+> setwd("~/Desktop/Lab_8-it24102334")
+> getwd()
+[1] "/Users/pathumtehan/Desktop/Lab_8-it24102334"
+> data <- read.table("Data - Lab 8.txt", header = TRUE)
+> fix(data)
+> attach(data)
+> 
+> #Q1
+> popmn <- mean(Nicotine)
+> popvar <- var(Nicotine)
+> 
+> #Q2
+> samples <- c()
+> n <- c()
+> for (i in 1:30) {
++   s <- sample(Nicotine, 5, replace = TRUE)
++   samples <- cbind(samples, s)
++   n <- c(n, paste("s", i))
++ }
+> colnames(samples) = n
+> s.means<-apply(samples,2,mean)
+> s.vars<-apply(samples,2,var)
+> 
+> #Q3
+> samplemean <- mean(s.means)
+> samplevars <- var(s.means)
+> 
+> #Q4
+> popmn
+[1] 1.77425
+> samplemean
+[1] 1.7998
+> #Q5
+> truevar = popvar / 5
+> samplevars
+[1] 0.03470134
+> 
+> 
+> #Exercise
+> weights<-read.table("Exercise - LaptopsWeights.txt",header = TRUE, sep = ",")
+> 
+> #Q1
+> weights<-weights$Weight.kg.
+> pop_mean <- mean(weights)
+> pop_sd <- sd(weights) * sqrt((length(weights)-1)/length(weights))
+> pop_mean
+[1] 2.468
+> pop_sd
+[1] 0.2528853
+> 
+> #Q2
+> set.seed(123)
+> sample_means <- numeric(25)
+> sample_sds <- numeric(25)
+> for (i in 1:25) {
++   samp_data <- sample(weights, size = 6, replace = TRUE)
++   sample_means[i] <- mean(samp_data)
++   sample_sds[i] <- sd(samp_data)
++ }
+> sample_means
+ [1] 2.530000 2.573333 2.473333 2.591667 2.456667 2.401667 2.590000 2.466667 2.401667 2.335000 2.586667
+[12] 2.378333 2.381667 2.465000 2.485000 2.451667 2.385000 2.338333 2.428333 2.551667 2.538333 2.466667
+[23] 2.470000 2.448333 2.475000
+> sample_sds
+ [1] 0.1513935 0.1191078 0.1718914 0.1345239 0.2749303 0.2544340 0.2167026 0.4530195 0.2230172 0.3237746
+[11] 0.1706068 0.3235686 0.2993604 0.2314951 0.1745566 0.2762909 0.2042303 0.2436733 0.2481465 0.2654367
+[21] 0.1708118 0.2451666 0.2405826 0.2792430 0.2358601
+> #Q3
+> mean_of_means <- mean(sample_means)
+> sd_of_means <- sd(sample_means)
+> mean_of_means
+[1] 2.4668
+> sd_of_means
+[1] 0.07624874
+> 
