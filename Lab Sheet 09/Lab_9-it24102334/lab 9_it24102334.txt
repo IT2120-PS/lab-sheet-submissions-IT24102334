@@ -1,0 +1,105 @@
+
+R version 4.5.1 (2025-06-13) -- "Great Square Root"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.82 (8536) aarch64-apple-darwin20]
+
+[Workspace restored from /Users/pathumtehan/.RData]
+[History restored from /Users/pathumtehan/.Rapp.history]
+
+> setwd("~/Desktop/Lab_9-it24102334")
+> #Q1
+> x<-c(3,7,11,0,7,0,4,5,6,2)
+> t.test(x,mu = 3)
+
+	One Sample t-test
+
+data:  x
+t = 1.3789, df = 9, p-value = 0.2012
+alternative hypothesis: true mean is not equal to 3
+95 percent confidence interval:
+ 2.0392 6.9608
+sample estimates:
+mean of x 
+      4.5 
+
+> #Q2
+> #i
+> weight<-c(17.6,20.6,22.2,15.3,20.9,21.0,18.9,18.9,18.9,18.2)
+> t.test(weight,mu = 25,alternative = 'less')
+
+	One Sample t-test
+
+data:  weight
+t = -9.0783, df = 9, p-value = 3.977e-06
+alternative hypothesis: true mean is less than 25
+95 percent confidence interval:
+     -Inf 20.41105
+sample estimates:
+mean of x 
+    19.25 
+
+> #ii
+> res <- t.test(weight,mu = 25,alternative = 'less')
+> res$statistic
+        t 
+-9.078319 
+> res$p.value
+[1] 3.976692e-06
+> res$conf.int
+[1]     -Inf 20.41105
+attr(,"conf.level")
+[1] 0.95
+> #Q3
+> #i
+> y<-rnorm(30,mean=9.8,sd=0.05)
+> #ii
+> t.test(y,mu = 10,alternative = "greater")
+
+	One Sample t-test
+
+data:  y
+t = -17.032, df = 29, p-value = 1
+alternative hypothesis: true mean is greater than 10
+95 percent confidence interval:
+ 9.771024      Inf
+sample estimates:
+mean of x 
+ 9.791795 
+
+> #Exercise#
+> #i
+> 
+> baking_time <- rnorm(25,mean=45,sd=2)
+> 
+> #ii
+> test_result <- t.test(baking_time,mu=46,alternative="less")
+> print(test_result)
+
+	One Sample t-test
+
+data:  baking_time
+t = -1.6115, df = 24, p-value = 0.06007
+alternative hypothesis: true mean is less than 46
+95 percent confidence interval:
+     -Inf 46.04477
+sample estimates:
+mean of x 
+ 45.27382 
+
+> 
